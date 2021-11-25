@@ -5,27 +5,24 @@ nav {
   flex-wrap: wrap;
   background: #282c34;
   font-weight: 600;
+  position: sticky;
+  top: 0;
 }
-
 .nav__projectName {
   color: #e4f9ff;
   text-decoration: none;
 }
-
 .authLink {
   color: #61dafb;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
-
 .authLink + .authLink {
   padding: 1em;
 }
-
 .authLink:hover {
   color: #ffffff;
 }
-
 .nav-logoutbtn {
   font-family: inherit;
   font-weight: inherit;
@@ -41,7 +38,6 @@ nav {
   position: sticky;
   top: 0;
 }
-
 .nav-logoutbtn:hover {
   transform: scale(1.05);
   background-color: #d13e3e;

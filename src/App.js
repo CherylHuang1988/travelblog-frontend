@@ -5,11 +5,9 @@ import Navbar from "./components/Navbar/Navbar";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
-
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {
@@ -23,7 +21,6 @@ export default function App() {
       setIsLoading(false);
     });
   }, []);
-
   function handleLogout() {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {
@@ -41,11 +38,9 @@ export default function App() {
       return setUser(null);
     });
   }
-
   function authenticate(user) {
     setUser(user);
   }
-
   if (isLoading) {
     return <LoadingComponent />;
   }
