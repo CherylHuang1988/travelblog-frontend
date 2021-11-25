@@ -5,9 +5,13 @@ import * as PATHS from "../../utils/paths";
 const Navbar = (props) => {
   return (
     <nav>
-      <Link to={PATHS.HOMEPAGE} className="nav__projectName">
-        Home Page
-      </Link>
+      <div className="nav__left">
+        <i className="topIcon fab fa-facebook"></i>
+        <i className="topIcon fab fa-twitter"></i>
+        <i className="topIcon fab fa-instagram-square"></i>
+        <i className="topIcon fab fa-pinterest"></i>
+      </div>
+
       <div className="nav__authLinks">
         {props.user ? (
           <>
@@ -29,6 +33,10 @@ const Navbar = (props) => {
           </>
         ) : (
           <>
+            <Link to={PATHS.HOMEPAGE} className="nav__projectName">
+              Home Page
+            </Link>
+
             <Link to={PATHS.SIGNUPPAGE} className="authLink">
               Signup
             </Link>
