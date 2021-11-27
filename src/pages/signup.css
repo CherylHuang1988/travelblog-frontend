@@ -1,4 +1,4 @@
-.login {
+.signup {
   height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
@@ -12,27 +12,27 @@
   background-size: cover;
 }
 
-.loginTitle {
+.signupTitle {
   font-size: 50px;
 }
 
-.loginForm {
+.signupForm {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.loginForm > label {
+.signupForm > label {
   margin: 10px 0;
 }
 
-.loginInput {
+.signupInput {
   padding: 10px;
   background-color: white;
   border: none;
 }
 
-.loginButton {
+.signupButton {
   margin-top: 20px;
   cursor: pointer;
   background-color: #219ebc;
@@ -42,6 +42,6 @@
   padding: 10px;
 }
 
-.loginButton:hover {
+.signupButton:hover {
   background-color: #90e0ef;
 }
