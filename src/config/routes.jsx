@@ -21,7 +21,7 @@ const routes = (props) => {
       element: <Login {...props} />,
     },
     {
-      path: PATHS.FEEDPAGE,
+      path: PATHS.FEED_PAGE,
       element: user ? (
         <FeedPage {...props} />
       ) : (
