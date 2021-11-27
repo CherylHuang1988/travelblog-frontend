@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
+import "./signup.css";
 
 export default function Signup({ authenticate }) {
   const [form, setForm] = useState({
@@ -41,15 +42,16 @@ export default function Signup({ authenticate }) {
   }
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleFormSubmission} className="auth__form">
+    <div className="signup">
+      <span className="signupTitle">Signup</span>
+      <form onSubmit={handleFormSubmission} className="signupForm">
         <label htmlFor="input-username">Username</label>
         <input
+          className="signupInput"
           id="input-username"
           type="text"
           name="username"
-          placeholder="Text"
+          placeholder="Enter your username..."
           value={username}
           onChange={handleInputChange}
           required
@@ -57,10 +59,11 @@ export default function Signup({ authenticate }) {
 
         <label htmlFor="input-password">Password</label>
         <input
+          className="signupInput"
           id="input-password"
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter your password..."
           value={password}
           onChange={handleInputChange}
           required
@@ -74,8 +77,8 @@ export default function Signup({ authenticate }) {
           </div>
         )}
 
-        <button className="button__submit" type="submit">
-          Submit
+        <button className="signupButton" type="submit">
+          Signup
         </button>
       </form>
     </div>

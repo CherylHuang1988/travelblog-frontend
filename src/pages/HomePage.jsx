@@ -1,5 +1,12 @@
+import Header from "./Header";
 import "../App.css";
-function HomePage() {
-  return <div className="App"></div>;
+import "./homepage.css";
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <div className="homepage"></div>
+    </>
+  );
 }
-export default HomePage;
