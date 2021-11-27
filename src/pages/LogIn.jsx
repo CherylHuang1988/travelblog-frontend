@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Signup";
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
+import "./login.css";
 
 export default function LogIn({ authenticate }) {
   const [form, setForm] = useState({
@@ -37,15 +38,16 @@ export default function LogIn({ authenticate }) {
   }
 
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={handleFormSubmission} className="signup__form">
+    <div className="login">
+      <span className="loginTitle">Login</span>
+      <form onSubmit={handleFormSubmission} className="loginForm">
         <label htmlFor="input-username">Username</label>
         <input
+          className="loginInput"
           id="input-username"
           type="text"
           name="username"
-          placeholder="username"
+          placeholder="Enter your username..."
           value={username}
           onChange={handleInputChange}
           required
@@ -53,10 +55,11 @@ export default function LogIn({ authenticate }) {
 
         <label htmlFor="input-password">Password</label>
         <input
+          className="loginInput"
           id="input-password"
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter your password..."
           value={password}
           onChange={handleInputChange}
           required
@@ -70,8 +73,8 @@ export default function LogIn({ authenticate }) {
           </div>
         )}
 
-        <button className="button__submit" type="submit">
-          Submit
+        <button className="loginButton" type="submit">
+          Login
         </button>
       </form>
     </div>
