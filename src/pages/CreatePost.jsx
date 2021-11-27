@@ -7,15 +7,10 @@ import { createPost } from "../services/post";
 function CreatePost() {
   //const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
   const [content, setContent] = useState("");
   const [chosenPicture, setChosenPicture] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
-  function handleDate(event) {
-    setDate(event.target.value);
-  }
 
   function handleTitle(event) {
     setTitle(event.target.value);
@@ -42,7 +37,6 @@ function CreatePost() {
     }
 
     const formBody = new FormData();
-    formBody.append("date", date);
     formBody.append("title", title);
     formBody.append("content", content);
     formBody.append("postPicture", chosenPicture);
@@ -65,17 +59,6 @@ function CreatePost() {
       <br />
       <form onSubmit={handleSubmit}>
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
-        <label>
-          Date:
-          <input
-            type="date"
-            value={date}
-            onChange={handleDate}
-            placeholder="date of the post"
-          />
-        </label>
-        <br />
-        <br />
         <label>
           Title:
           <input

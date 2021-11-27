@@ -14,7 +14,7 @@ export function removeUserToken() {
 
 export function sendUser() {
   return {
-    header: {
+    headers: {
       authorization: getUserToken(),
     },
   };
