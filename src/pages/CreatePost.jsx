@@ -3,6 +3,7 @@ import { useState } from "react";
 import LoadingComponent from "../components/Loading/index";
 import { createPost } from "../services/post";
 //import * as PATHS from "../utils/paths";
+import "./createpost.css";
 
 function CreatePost() {
   //const navigate = useNavigate();
@@ -53,43 +54,49 @@ function CreatePost() {
     }
   }
   return (
-    <div>
-      <h1>Create your Post</h1>
-      <br />
-      <br />
-      <form onSubmit={handleSubmit}>
+    <div className="write">
+      <form className="writeForm" onSubmit={handleSubmit}>
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
-        <label>
-          Title:
+        <div className="writeFormGroup">
+          <label htmlFor="fileInput">
+            <i className="writeIcon fas fa-plus"></i>
+          </label>
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: "none" }}
+            onChange={handleFileInput}
+          />
+
+          <br />
+
           <input
             value={title}
             onChange={handleTitle}
             type="text"
-            placeholder="What's New?"
+            placeholder="Title"
+            className="writeInput"
+            autoFocus={true}
           />
-        </label>
+        </div>
+
         <br />
-        <br />
-        <label>
-          Image:
-          <input className="inputFile" type="file" onChange={handleFileInput} />
-        </label>
-        <br />
-        <br />
-        <label>
-          Text of your Post:
-          <br />
+
+        <div className="writeFormGroup">
           <textarea
-            rows="10"
-            cols="50"
+            className="writeInput writeText"
             value={content}
             onChange={handleInput}
             type="text"
-            placeholder="Sharing your experience wiht us!"
+            placeholder="Share your experience wiht us..."
           />
-        </label>
-        <br />
-        <button type="submit">Create a new Post</button>
+
+          <br />
+
+          <button className="writeSubmit" type="submit">
+            Publish
+          </button>
+        </div>
       </form>
     </div>
   );
