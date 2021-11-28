@@ -24,12 +24,22 @@ const Navbar = (props) => {
             <Link to={PATHS.CREATE_POST} className="authLink">
               Write a post
             </Link>
-            <Link to={PATHS.PROFILE_SETTINGS_PAGE} className="authLink">
-              Settings
-            </Link>
+
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>
+
+            <Link
+              to={PATHS.PROFILE_SETTINGS_PAGE}
+              className="authLink settingsBtn"
+            >
+              <img
+                className="topImg"
+                src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt=""
+              />
+              <i className="topSearchIcon fas fa-search"></i>
+            </Link>
           </>
         ) : (
           <>
