@@ -55,6 +55,11 @@ function CreatePost() {
   }
   return (
     <div className="write">
+      <img
+        className="writeImg"
+        src="https://images.pexels.com/photos/10313904/pexels-photo-10313904.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        alt=""
+      />
       <form className="writeForm" onSubmit={handleSubmit}>
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
         <div className="writeFormGroup">
