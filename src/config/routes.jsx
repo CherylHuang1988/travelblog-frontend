@@ -4,11 +4,8 @@ import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import FeedPage from "../pages/FeedPage";
 import CreatePost from "../pages/CreatePost";
-<<<<<<< HEAD
 import SinglePost from "../pages/SinglePost";
-=======
 import Profile from "../pages/Profile";
->>>>>>> noemi
 import * as PATHS from "../utils/paths";
 
 const routes = (props) => {
@@ -43,17 +40,14 @@ const routes = (props) => {
       ),
     },
     {
-<<<<<<< HEAD
       path: PATHS.POST_PAGE,
       element: <SinglePost {...props} />,
-=======
       path: PATHS.CURRENT_USER_PROFILE,
       element: user ? (
         <Profile {...props} />
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
->>>>>>> noemi
     },
   ];
 };
