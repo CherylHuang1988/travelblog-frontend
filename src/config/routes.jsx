@@ -4,7 +4,9 @@ import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import FeedPage from "../pages/FeedPage";
 import CreatePost from "../pages/CreatePost";
+import Profile from "../pages/Profile";
 import * as PATHS from "../utils/paths";
+
 const routes = (props) => {
   const { user } = props;
   return [
@@ -32,6 +34,14 @@ const routes = (props) => {
       path: PATHS.CREATE_POST,
       element: user ? (
         <CreatePost {...props} />
+      ) : (
+        <Navigate to={PATHS.LOGINPAGE} replace />
+      ),
+    },
+    {
+      path: PATHS.CURRENT_USER_PROFILE,
+      element: user ? (
+        <Profile {...props} />
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
