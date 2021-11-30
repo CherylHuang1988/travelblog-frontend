@@ -4,6 +4,7 @@ import Login from "../pages/LogIn";
 import Signup from "../pages/Signup";
 import FeedPage from "../pages/FeedPage";
 import CreatePost from "../pages/CreatePost";
+import SinglePost from "../pages/SinglePost";
 import * as PATHS from "../utils/paths";
 const routes = (props) => {
   const { user } = props;
@@ -35,6 +36,10 @@ const routes = (props) => {
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
+    },
+    {
+      path: PATHS.POST_PAGE,
+      element: <SinglePost {...props} />,
     },
   ];
 };

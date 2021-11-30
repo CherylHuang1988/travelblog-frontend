@@ -13,3 +13,10 @@ export function createPost(formBody) {
     .then(onSuccess("create-post"))
     .catch(onError("create-post"));
 }
+
+export function getSinglePost(id) {
+  return postService
+    .get(`/${id}`)
+    .then(onSuccess("getSinglePost"))
+    .catch(onError("getSinglePost"));
+}
