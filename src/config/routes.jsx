@@ -42,6 +42,8 @@ const routes = (props) => {
     {
       path: PATHS.POST_PAGE,
       element: <SinglePost {...props} />,
+    },
+    {
       path: PATHS.CURRENT_USER_PROFILE,
       element: user ? (
         <Profile {...props} />
