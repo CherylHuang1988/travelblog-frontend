@@ -1,9 +1,9 @@
 import axios from "axios";
-import { sendUser } from "../utils/userToken";
 import { onError, onSuccess } from "../utils/serverResponseHandlers";
+import { getAccessToken, sendUser, SERVER_URL } from "../utils/consts";
 
 const postService = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/post`,
+  baseURL: `${SERVER_URL}/post`,
 });
 
 export function createPost(formBody) {
@@ -19,4 +19,17 @@ export function getSinglePost(id) {
     .get(`/${id}`)
     .then(onSuccess("getSinglePost"))
     .catch(onError("getSinglePost"));
+}
+
+export function getAllPosts() {
+  const authorization = getAccessToken();
+  console.log("authorization:", authorization);
+  return postService
+    .get("/", {
+      headers: {
+        authorization: getAccessToken(),
+      },
+    })
+    .then(onSuccess("getAllPosts"))
+    .catch(onError("getAllPosts"));
 }

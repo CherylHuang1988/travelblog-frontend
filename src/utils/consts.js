@@ -24,6 +24,6 @@ export function sendUser() {
   };
 }
 
-const BASE_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
+const BASE_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
-export const SERVER_URL = `${BASE_URL}/api`;
+export const SERVER_URL = `${BASE_URL}`;

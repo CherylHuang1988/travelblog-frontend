@@ -1,11 +1,32 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getAllPosts } from "../services/post";
 
-const FeedPage = () => {
+function FeedPage() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getAllPosts().then((dbPosts) => {
+      console.log("db:", dbPosts);
+      if (!dbPosts.success) {
+        return;
+      }
+      setPosts(dbPosts.data.post);
+    });
+  }, []);
+
   return (
     <div>
-      <h1>This page is hyper protected!</h1>
+      {posts.map((post) => (
+        <Link key={post._id} to={`/post/${post._id}`}>
+          <div>
+            <h1>{post.title}</h1>
+            <img height="200px" src={post.image} alt={post.content} />
+          </div>
+        </Link>
+      ))}
     </div>
   );
-};
+}
 
 export default FeedPage;

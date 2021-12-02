@@ -1,12 +1,12 @@
 import { useState } from "react";
-//import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import LoadingComponent from "../components/Loading/index";
 import { createPost } from "../services/post";
-//import * as PATHS from "../utils/paths";
+import * as PATHS from "../utils/paths";
 import "./createpost.css";
 
 function CreatePost() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [chosenPicture, setChosenPicture] = useState("");
@@ -46,7 +46,7 @@ function CreatePost() {
       if (!res.success) {
         return setError(res.data);
       }
-      //navigate(PATHS.FEED_PAGE);
+      navigate(PATHS.FEED_PAGE);
     });
 
     if (isLoading) {
