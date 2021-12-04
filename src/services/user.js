@@ -27,7 +27,7 @@ export function getUserData(username) {
     .catch(onError("getUser"));
 }
 
-export function followPerson(target) {
+/*export function followPerson(target) {
   return userService
     .post("/follow", { target }, sendUser())
     .then(onSuccess("following"))
@@ -39,4 +39,4 @@ export function unfollowPerson(target) {
     .post("/unfollow", { target }, sendUser())
     .then(onSuccess("unfollowing"))
     .catch(onError("unfollowing"));
-}
+}*/

@@ -1,0 +1,64 @@
+.settings {
+  display: flex;
+}
+
+.settingsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settingsUpdateTitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: teal;
+}
+
+.settingsDeleteTitle {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.settingsPP {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.settingsPP > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.settingsForm > label {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+input {
+  color: gray;
+  margin: 10px 0;
+  height: 30px;
+}
+
+.changeUsernameBtn {
+  margin-left: 140px;
+}
+
+.changeUsernameBtn,
+.profilePicButton {
+  width: 150px;
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: teal;
+}
