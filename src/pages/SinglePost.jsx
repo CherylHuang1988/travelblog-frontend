@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { getSinglePost } from "../services/post";
+import { Link, useNavigate } from "react-router-dom";
+import { deletePost, getSinglePost } from "../services/post";
 
 function SinglePost() {
   const { postId } = useParams();
+  console.log(postId);
   const [singlePost, setSinglePost] = useState(undefined);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const takeMeTheHellOuttaHerTo = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -22,6 +24,24 @@ function SinglePost() {
         setLoading(false);
       });
   }, [postId]);
+
+  function handleDelete() {
+    setLoading(true);
+    deletePost(postId)
+      .then((response) => {
+        if (!response.success) {
+          return setError(response.data);
+        }
+      })
+      .finally(() => {
+        if (error) {
+          setLoading(false);
+        }
+        takeMeTheHellOuttaHerTo("/feed");
+      });
+  } // function definition -> this defines actions
+
+  //handleDelete() // function definition ->  this performs actions
 
   if (loading) {
     return <div>Loading...</div>;
@@ -51,6 +71,10 @@ function SinglePost() {
       </main>
       <br />
       <h2>{singlePost.content}</h2>
+      <br />
+      <button onClick={handleDelete} type="delete">
+        Delete
+      </button>
     </div>
   );
 }

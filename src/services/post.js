@@ -33,3 +33,14 @@ export function getAllPosts() {
     .then(onSuccess("getAllPosts"))
     .catch(onError("getAllPosts"));
 }
+
+export function deletePost(id) {
+  return postService
+    .delete(`/${id}/delete`, {
+      headers: {
+        authorization: getAccessToken(),
+      },
+    })
+    .then(onSuccess("deletePost"))
+    .catch(onError("deletepost"));
+}
