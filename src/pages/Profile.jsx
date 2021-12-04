@@ -1,6 +1,7 @@
 /*import axios from "axios";*/
 import { useState } from "react";
 import { updateProfilePic, updateUserName } from "../services/user";
+import "./profile.css";
 
 export default function Profile(props) {
   const { user, setUser } = props;
@@ -67,39 +68,63 @@ export default function Profile(props) {
   }
 
   return (
-    <div>
-      <h1>{user.username}'s Profile </h1>
+    <div className="settings">
+      <div className="settingsWrapper">
+        <div className="settingsTitle">
+          <span className="settingsUpdateTitle">
+            {user.username}'s Profile Settings
+          </span>
+        </div>
 
-      <img
-        src={
-          isLoading
-            ? "https://www.vuescript.com/wp-content/uploads/2018/11/Show-Loader-During-Image-Loading-vue-load-image.png"
-            : user.profilePic
-        }
-        alt={`${user.username}'s profile`}
-        height={"200px"}
-      />
+        {error && <p style={{ color: "red", fontWeight: "600" }}>{error}</p>}
 
-      {error && <p style={{ color: "red", fontWeight: "600" }}>{error}</p>}
+        <form
+          className="settingsForm"
+          onSubmit={handleFormSubmit}
+          method="POST"
+        >
+          <label>Profile Picture</label>
+          <div className="settingsPP">
+            <img
+              className="settingsPPIcon"
+              src={
+                isLoading
+                  ? "https://www.vuescript.com/wp-content/uploads/2018/11/Show-Loader-During-Image-Loading-vue-load-image.png"
+                  : user.profilePic
+              }
+              alt={`${user.username}'s profile`}
+              height={"200px"}
+            />
 
-      <form onSubmit={handleFormSubmit} method="POST">
-        <input key={inputKey} type="file" onChange={handleInputChange} />
-        <button type="submit">Upload Profile Picture!</button>
-      </form>
+            <input
+              id="fileInput"
+              key={inputKey}
+              type="file"
+              onChange={handleInputChange}
+            />
+            <button className="profilePicButton" type="submit">
+              Upload Profile Picture!
+            </button>
+          </div>
+        </form>
 
-      <form onSubmit={handleUserChange}>
-        <label>
-          Username
-          <input
-            type="text"
-            name="username"
-            value={username}
-            placeholder="Change your username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <button type="submit">Change username</button>
-      </form>
+        <form onSubmit={handleUserChange}>
+          <label>Username</label>
+          <div>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              placeholder="Change your username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <button className="changeUsernameBtn" type="submit">
+              Change username
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
