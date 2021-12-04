@@ -8,8 +8,9 @@ import * as USER_HELPERS from "./utils/userToken";
 /*import HomePage from "./pages/HomePage";*/
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {
@@ -23,6 +24,7 @@ export default function App() {
       setIsLoading(false);
     });
   }, []);
+
   function handleLogout() {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {
@@ -48,10 +50,10 @@ export default function App() {
   }
   return (
     <div className="App">
-      <Navbar handleLogout={handleLogout} user={user} />
+      <Navbar handleLogout={handleLogout} user={user} logout={logout} />
 
       <Routes>
-        {routes({ user, authenticate, handleLogout }).map((route) => (
+        {routes({ user, setUser, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
