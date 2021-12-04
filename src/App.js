@@ -6,6 +6,7 @@ import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 /*import HomePage from "./pages/HomePage";*/
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
