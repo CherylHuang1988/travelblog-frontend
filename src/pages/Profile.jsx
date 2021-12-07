@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { updateProfilePic, updateUserName } from "../services/user";
 import "./profile.css";
+import { deleteUser } from "../services/user";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile(props) {
   const { user, setUser } = props;
@@ -10,6 +12,7 @@ export default function Profile(props) {
   const [error, setError] = useState("");
   const [inputKey, setInputKey] = useState("");
   const [username, setUsername] = useState(user.username);
+  const takeMeTheHellOuttaHerTo = useNavigate();
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -65,6 +68,30 @@ export default function Profile(props) {
       .finally(() => {
         setIsLoading(false);
       });
+  }
+
+  function handleDelete() {
+    setIsLoading(true);
+    deleteUser(user)
+      .then((response) => {
+        if (!response.success) {
+          return setError(response.data);
+        }
+      })
+      .finally(() => {
+        if (error) {
+          setIsLoading(false);
+        }
+        takeMeTheHellOuttaHerTo("/auth/login");
+      });
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
   }
 
   return (
@@ -123,6 +150,9 @@ export default function Profile(props) {
               Change username
             </button>
           </div>
+          <button onClick={handleDelete} type="delete">
+            Delete
+          </button>
         </form>
       </div>
     </div>

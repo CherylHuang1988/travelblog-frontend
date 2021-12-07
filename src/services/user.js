@@ -1,5 +1,5 @@
 import axios from "axios";
-import { sendUser, SERVER_URL } from "../utils/consts";
+import { getAccessToken, sendUser, SERVER_URL } from "../utils/consts";
 import { onError, onSuccess } from "../utils/serverResponseHandlers";
 
 const userService = axios.create({
@@ -27,16 +27,13 @@ export function getUserData(username) {
     .catch(onError("getUser"));
 }
 
-/*export function followPerson(target) {
+export function deleteUser(userId) {
   return userService
-    .post("/follow", { target }, sendUser())
-    .then(onSuccess("following"))
-    .catch(onError("following"));
+    .delete(`/${userId}/delete`, {
+      headers: {
+        authorization: getAccessToken(),
+      },
+    })
+    .then(onSuccess("deleteUser"))
+    .catch(onError("deleteUser"));
 }
-
-export function unfollowPerson(target) {
-  return userService
-    .post("/unfollow", { target }, sendUser())
-    .then(onSuccess("unfollowing"))
-    .catch(onError("unfollowing"));
-}*/
