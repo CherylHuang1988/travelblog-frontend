@@ -6,6 +6,7 @@ import FeedPage from "../pages/FeedPage";
 import CreatePost from "../pages/CreatePost";
 import SinglePost from "../pages/SinglePost";
 import Profile from "../pages/Profile";
+import EditPost from "../pages/EditPost";
 import * as PATHS from "../utils/paths";
 
 const routes = (props) => {
@@ -50,6 +51,10 @@ const routes = (props) => {
       ) : (
         <Navigate to={PATHS.LOGINPAGE} replace />
       ),
+    },
+    {
+      path: PATHS.EDIT_POST,
+      element: <EditPost {...props} />,
     },
   ];
 };

@@ -1,12 +1,16 @@
 /*import axios from "axios";*/
 import { useState } from "react";
-import { updateProfilePic, updateUserName } from "../services/user";
+//import { useParams } from "react-router";
+import { updateProfilePic, updateUserName, deleteUser } from "../services/user";
+import { useNavigate } from "react-router-dom";
 import "./profile.css";
 import { deleteUser } from "../services/user";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile(props) {
+  //const { userId } = useParams();
   const { user, setUser } = props;
+  console.log("user:", user);
   const [chosenPicture, setChosenPicture] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -72,7 +76,7 @@ export default function Profile(props) {
 
   function handleDelete() {
     setIsLoading(true);
-    deleteUser(user)
+    deleteUser(user._id)
       .then((response) => {
         if (!response.success) {
           return setError(response.data);
@@ -80,18 +84,10 @@ export default function Profile(props) {
       })
       .finally(() => {
         if (error) {
-          setIsLoading(false);
+          return setIsLoading(false);
         }
         takeMeTheHellOuttaHerTo("/auth/login");
       });
-  }
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
   }
 
   return (
@@ -148,6 +144,9 @@ export default function Profile(props) {
 
             <button className="changeUsernameBtn" type="submit">
               Change username
+            </button>
+            <button onClick={handleDelete} type="delete">
+              Delete
             </button>
           </div>
           <button onClick={handleDelete} type="delete">
