@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   getAccessToken,
-  //removeAccessToken,
+  removeAccessToken,
   sendUser,
   SERVER_URL,
 } from "../utils/consts";
@@ -39,7 +39,10 @@ export function deleteUser(userId) {
         authorization: getAccessToken(),
       },
     })
-    .then(onSuccess("deleteUser"))
+    .then(() => {
+      removeAccessToken();
+      return onSuccess("deleteUser");
+    })
     .catch(onError("deleteUser"));
 }
 
