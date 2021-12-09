@@ -4,8 +4,6 @@ import { useState } from "react";
 import { updateProfilePic, updateUserName, deleteUser } from "../services/user";
 import { useNavigate } from "react-router-dom";
 import "./profile.css";
-import { deleteUser } from "../services/user";
-import { useNavigate } from "react-router-dom";
 
 export default function Profile(props) {
   //const { userId } = useParams();
@@ -144,9 +142,6 @@ export default function Profile(props) {
 
             <button className="changeUsernameBtn" type="submit">
               Change username
-            </button>
-            <button onClick={handleDelete} type="delete">
-              Delete
             </button>
           </div>
           <button onClick={handleDelete} type="delete">
