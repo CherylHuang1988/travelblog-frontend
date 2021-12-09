@@ -7,3 +7,4 @@ export const CREATE_POST = "/post/create";
 export const POST_PAGE = "/post/:postId";
 export const FEED_PAGE = "/feed";
 export const PROFILE_SETTINGS_PAGE = "/settings";
+export const EDIT_POST = "/post/edit/:postId";

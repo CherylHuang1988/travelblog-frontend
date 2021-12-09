@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePost, getSinglePost } from "../services/post";
 
-function SinglePost() {
+function SinglePost(props) {
   const { postId } = useParams();
   console.log(postId);
   const [singlePost, setSinglePost] = useState(undefined);
@@ -51,6 +51,10 @@ function SinglePost() {
     return <div>{error}</div>;
   }
 
+  const isSameUser = props.user.username === singlePost.owner.username;
+  const date = new Date(props.user.createdAt);
+  console.log("Date:", date);
+
   return (
     <div>
       <br />
@@ -59,7 +63,7 @@ function SinglePost() {
       <Link to={`/${singlePost.owner.username}`}>
         <h3>{singlePost.owner.username}</h3>
       </Link>
-      <h5>Post on: {singlePost.createdAt}</h5>
+      <h5>Post on: {date.toUTCString()}</h5>
       <br />
       <main>
         <img
@@ -72,9 +76,11 @@ function SinglePost() {
       <br />
       <h2>{singlePost.content}</h2>
       <br />
-      <button onClick={handleDelete} type="delete">
-        Delete
-      </button>
+      {isSameUser ? (
+        <button onClick={handleDelete} type="delete">
+          Delete
+        </button>
+      ) : null}
     </div>
   );
 }

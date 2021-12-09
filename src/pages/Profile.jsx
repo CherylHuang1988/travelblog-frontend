@@ -1,15 +1,20 @@
 /*import axios from "axios";*/
 import { useState } from "react";
-import { updateProfilePic, updateUserName } from "../services/user";
+//import { useParams } from "react-router";
+import { updateProfilePic, updateUserName, deleteUser } from "../services/user";
+import { useNavigate } from "react-router-dom";
 import "./profile.css";
 
 export default function Profile(props) {
+  //const { userId } = useParams();
   const { user, setUser } = props;
+  console.log("user:", user);
   const [chosenPicture, setChosenPicture] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [inputKey, setInputKey] = useState("");
   const [username, setUsername] = useState(user.username);
+  const takeMeTheHellOuttaHerTo = useNavigate();
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -67,6 +72,22 @@ export default function Profile(props) {
       });
   }
 
+  function handleDelete() {
+    setIsLoading(true);
+    deleteUser(user._id)
+      .then((response) => {
+        if (!response.success) {
+          return setError(response.data);
+        }
+      })
+      .finally(() => {
+        if (error) {
+          return setIsLoading(false);
+        }
+        takeMeTheHellOuttaHerTo("/auth/login");
+      });
+  }
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -121,6 +142,9 @@ export default function Profile(props) {
 
             <button className="changeUsernameBtn" type="submit">
               Change username
+            </button>
+            <button onClick={handleDelete} type="delete">
+              Delete
             </button>
           </div>
         </form>

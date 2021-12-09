@@ -1,5 +1,10 @@
 import axios from "axios";
-import { sendUser, SERVER_URL } from "../utils/consts";
+import {
+  getAccessToken,
+  //removeAccessToken,
+  sendUser,
+  SERVER_URL,
+} from "../utils/consts";
 import { onError, onSuccess } from "../utils/serverResponseHandlers";
 
 const userService = axios.create({
@@ -25,6 +30,17 @@ export function getUserData(username) {
     .get(`/${username}`)
     .then(onSuccess("getUser"))
     .catch(onError("getUser"));
+}
+
+export function deleteUser(userId) {
+  return userService
+    .delete(`/${userId}/delete`, {
+      headers: {
+        authorization: getAccessToken(),
+      },
+    })
+    .then(onSuccess("deleteUser"))
+    .catch(onError("deleteUser"));
 }
 
 /*export function followPerson(target) {
