@@ -8,7 +8,6 @@ import "./profile.css";
 export default function Profile(props) {
   //const { userId } = useParams();
   const { user, setUser } = props;
-  console.log("user:", user);
   const [chosenPicture, setChosenPicture] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -79,6 +78,7 @@ export default function Profile(props) {
         if (!response.success) {
           return setError(response.data);
         }
+        setUser(null);
       })
       .finally(() => {
         if (error) {
