@@ -1,0 +1,24 @@
+.post {
+  width: 350px;
+  margin: 0px 25px 40px 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.postImg {
+  width: 350px;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.postTitle {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 25px;
+  margin-left: 25px;
+  color: #adb5bd;
+  text-decoration: none;
+}
