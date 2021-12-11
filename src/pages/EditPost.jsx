@@ -14,7 +14,6 @@ function EditPost(props) {
   const [chosenPicture, setChosenPicture] = useState("");
   //const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [inputKey, setInputKey] = useState("");
   const navigate = useNavigate();
 
   function handleFormSubmit(event) {
@@ -64,7 +63,7 @@ function EditPost(props) {
       <br />
       {error && <h3 style={{ color: "red" }}>{error}</h3>}
       <form onSubmit={handleFormSubmit} method="POST">
-        <input key={inputKey} type="file" onChange={handleInputChange} />
+        <input type="file" onChange={handleInputChange} />
         <button type="submit">Update your Post!</button>
       </form>
     </div>
