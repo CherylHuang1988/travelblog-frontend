@@ -95,7 +95,7 @@ export default function Profile(props) {
       <div className="settingsWrapper">
         <div className="settingsTitle">
           <span className="settingsUpdateTitle">
-            {user.username}'s Profile Settings
+            Update {user.username}'s Account
           </span>
         </div>
 
@@ -126,12 +126,13 @@ export default function Profile(props) {
               onChange={handleInputChange}
             />
             <button className="profilePicButton" type="submit">
-              Upload Profile Picture!
+              Upload New Picture
             </button>
           </div>
         </form>
+        <hr />
 
-        <form onSubmit={handleUserChange}>
+        <form className="settingsForm" onSubmit={handleUserChange}>
           <label>Username</label>
           <div>
             <input
@@ -146,10 +147,16 @@ export default function Profile(props) {
               Change username
             </button>
           </div>
-          <button onClick={handleDelete} type="delete">
-            Delete
-          </button>
         </form>
+        <hr className="hr" />
+
+        <button
+          className="settingsDeleteTitle"
+          onClick={handleDelete}
+          type="delete"
+        >
+          Delete Account
+        </button>
       </div>
     </div>
   );

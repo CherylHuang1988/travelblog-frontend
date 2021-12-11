@@ -1,9 +1,13 @@
 .settings {
   display: flex;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
 }
 
 .settingsTitle {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 }
@@ -15,8 +19,20 @@
 }
 
 .settingsDeleteTitle {
-  font-size: 12px;
-  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-left: 5px;
+  padding: 10px;
+  border: none;
+  background-color: #9de7e4;
+  border-radius: 15px;
+}
+
+.settingsDeleteTitle:hover {
+  background-color: white;
   color: red;
 }
 
@@ -36,24 +52,34 @@
   height: 70px;
   border-radius: 20px;
   object-fit: cover;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .settingsForm > label {
   font-size: 20px;
   margin-top: 20px;
+  color: #adb5bd;
 }
 
 input {
-  color: gray;
-  margin: 10px 0;
+  color: #adb5bd;
+  margin-top: 10px;
   height: 30px;
+  border: none;
 }
 
 .changeUsernameBtn {
-  margin-left: 140px;
+  margin-left: 300px;
+  width: 150px;
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: teal;
+  padding: 5px;
 }
 
-.changeUsernameBtn,
 .profilePicButton {
   width: 150px;
   align-self: center;
@@ -61,4 +87,6 @@ input {
   border-radius: 10px;
   color: white;
   background-color: teal;
+  padding: 5px;
+  margin-left: 150px;
 }

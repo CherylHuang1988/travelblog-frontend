@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllPosts } from "../services/post";
+import "./feedpage.css";
 
 function FeedPage() {
   const [posts, setPosts] = useState([]);
@@ -21,7 +22,7 @@ function FeedPage() {
         <Link key={post._id} to={`/post/${post._id}`}>
           <div>
             <h1>{post.title}</h1>
-            <img height="200px" src={post.image} alt={post.content} />
+            <img height="350px" src={post.image} alt={post.content} />
           </div>
         </Link>
       ))}
