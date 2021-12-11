@@ -84,6 +84,7 @@ function SinglePost(props) {
           Delete
         </button>
       ) : null}
+      <br />
       {isSameUser ? (
         <button onClick={handleEdit} type="button">
           Edit
