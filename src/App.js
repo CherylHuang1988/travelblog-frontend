@@ -10,7 +10,7 @@ import * as USER_HELPERS from "./utils/userToken";
 export default function App() {
   const [user, setUser] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
-  console.log(user);
+
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {

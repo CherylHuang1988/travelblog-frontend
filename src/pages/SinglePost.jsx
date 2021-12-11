@@ -42,6 +42,9 @@ function SinglePost(props) {
   } // function definition -> this defines actions
 
   //handleDelete() // function definition ->  this performs actions
+  function handleEdit() {
+    takeMeTheHellOuttaHerTo(`/post/${postId}/edit`);
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -79,6 +82,11 @@ function SinglePost(props) {
       {isSameUser ? (
         <button onClick={handleDelete} type="delete">
           Delete
+        </button>
+      ) : null}
+      {isSameUser ? (
+        <button onClick={handleEdit} type="button">
+          Edit
         </button>
       ) : null}
     </div>

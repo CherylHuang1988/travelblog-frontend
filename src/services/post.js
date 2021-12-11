@@ -6,9 +6,16 @@ const postService = axios.create({
   baseURL: `${SERVER_URL}/post`,
 });
 
-export function editPostPic(formBody) {
+export function editPostTitle(title) {
   return postService
-    .post("/editPostPic", formBody, sendUser())
+    .post("/editPostTitle", { title }, sendUser())
+    .then(onSuccess("edit-post"))
+    .catch(onError("edit-post"));
+}
+
+export function editPostPic(id, formBody) {
+  return postService
+    .post(`/${id}/editPostPic`, formBody, sendUser())
     .then(onSuccess("edit-post"))
     .catch(onError("edit-post"));
 }
