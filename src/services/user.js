@@ -39,12 +39,20 @@ export function deleteUser(userId) {
         authorization: getAccessToken(),
       },
     })
-    .then(() => {
+    .then((res) => {
       removeAccessToken();
-      return onSuccess("deleteUser");
+      return onSuccess("deleteUser")(res);
     })
     .catch(onError("deleteUser"));
 }
+
+// const arr = [1,2,3]
+
+// function doubleThatSucker(num) {
+//   return num * 2
+// }
+
+// arr.map((num, index, arr) => doubleThatSucker(num, index, arr)) // [2,4,6]
 
 /*export function followPerson(target) {
   return userService

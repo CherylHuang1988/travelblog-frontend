@@ -71,10 +71,12 @@ export default function Profile(props) {
       });
   }
 
-  function handleDelete() {
+  function handleDelete(event) {
+    event.preventDefault();
     setIsLoading(true);
     deleteUser(user._id)
       .then((response) => {
+        console.log(response);
         if (!response.success) {
           return setError(response.data);
         }
