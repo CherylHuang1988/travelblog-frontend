@@ -16,12 +16,12 @@ nav {
 .nav__projectName {
   color: #22223b;
   text-decoration: none;
-
+  font-size: 1.25em;
   padding-right: 1em;
 }
 
 .nav__left {
-  flex: 4;
+  flex: 5;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -50,8 +50,8 @@ nav {
   margin-left: 15px;
 }
 
-.authLinks {
-  flex: 8;
+.nav__authLinks {
+  flex: 4;
 }
 
 .authLink {
@@ -59,13 +59,12 @@ nav {
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
-.authLink + .authLink {
-  padding: 1em;
-}
+
 .authLink:hover {
   color: teal;
 }
 .nav-logoutbtn {
+  font-size: 1em;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
   padding: 0.5em 1em;

@@ -18,22 +18,19 @@ function FeedPage() {
 
   return (
     <>
-      {posts.map((post) => (
-        <Link className="post" key={post._id} to={`/post/${post._id}`}>
-          <h1 className="postTitle">{post.title}</h1>
-          <img
-            height="280px"
-            className="postImg"
-            src={post.image}
-            alt={post.content}
-          />
-        </Link>
-      ))}
-
-      <div className="postInfo">
-        <div>
-          <span className="postTitle"></span>
-        </div>
+      <div className="flex">
+        {posts.map((post) => (
+          <Link className="post" key={post._id} to={`/post/${post._id}`}>
+            <h3>{post.title}</h3>
+            <img
+              className="postImg"
+              height="200px"
+              width="100%"
+              src={post.image}
+              alt={post.content}
+            />
+          </Link>
+        ))}
       </div>
     </>
   );

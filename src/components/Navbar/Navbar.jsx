@@ -15,42 +15,39 @@ const Navbar = (props) => {
       <div className="nav__authLinks">
         {props.user ? (
           <>
-            <Link to={PATHS.FEED_PAGE} className="authLink">
+            <Link to={PATHS.HOMEPAGE} className="nav__projectName authLink">
+              Home Page
+            </Link>
+
+            <Link to={PATHS.FEED_PAGE} className="nav__projectName authLink">
               Feed Page
             </Link>
-            <Link to={PATHS.CURRENT_USER_PROFILE} className="authLink">
-              Profile Page
-            </Link>
-            <Link to={PATHS.CREATE_POST} className="authLink">
+
+            <Link to={PATHS.CREATE_POST} className="nav__projectName authLink">
               Write a post
+            </Link>
+
+            <Link
+              to={PATHS.CURRENT_USER_PROFILE}
+              className="nav__projectName authLink"
+            >
+              Profile Settings
             </Link>
 
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>
-
-            <Link
-              to={PATHS.PROFILE_SETTINGS_PAGE}
-              className="authLink settingsBtn"
-            >
-              <img
-                className="topImg"
-                src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt=""
-              />
-              <i className="topSearchIcon fas fa-search"></i>
-            </Link>
           </>
         ) : (
           <>
-            <Link to={PATHS.HOMEPAGE} className="nav__projectName">
+            <Link to={PATHS.HOMEPAGE} className="nav__projectName authLink ">
               Home Page
             </Link>
 
-            <Link to={PATHS.SIGNUPPAGE} className="authLink">
+            <Link to={PATHS.SIGNUPPAGE} className="nav__projectName authLink">
               Signup
             </Link>
-            <Link to={PATHS.LOGINPAGE} className="authLink">
+            <Link to={PATHS.LOGINPAGE} className="nav__projectName authLink">
               Log In
             </Link>
           </>
