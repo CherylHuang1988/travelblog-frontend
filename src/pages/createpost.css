@@ -1,11 +1,14 @@
 .write {
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .writeImg {
-  margin-left: 150px;
-  width: 70vw;
-  height: 250px;
+  width: 65vw;
+  height: 300px;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -46,13 +49,13 @@
 
 .writeText {
   font-size: 20px;
-  height: 100vh;
+  height: 20vh;
 }
 
 .writeSubmit {
   position: absolute;
-  top: 20px;
-  right: 50px;
+  bottom: -80px;
+  left: 150px;
   color: white;
   background-color: teal;
   padding: 10px;

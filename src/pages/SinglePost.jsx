@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deletePost, getSinglePost } from "../services/post";
+import "./singlepost.css";
 
 function SinglePost(props) {
   const { postId } = useParams();
@@ -58,35 +59,48 @@ function SinglePost(props) {
   console.log("Date:", date);
 
   return (
-    <div>
-      <br />
-      <h1>{singlePost.title}</h1>
-      <br />
-      <h3>{singlePost.owner.username}</h3>
-      <h5>Post on: {date.toUTCString()}</h5>
-      <br />
-      <main>
+    <div className="singlepost">
+      <div className="singlePostWrapper">
         <img
+          className="singlePostImg"
           width="600"
           height="400"
           src={singlePost.image}
           alt={`$singlePost.owner.username} pic`}
         />
-      </main>
-      <br />
-      <h2>{singlePost.content}</h2>
-      <br />
-      {isSameUser ? (
-        <button onClick={handleDelete} type="delete">
-          Delete
-        </button>
-      ) : null}
 
-      {isSameUser ? (
-        <button onClick={handleEdit} type="button">
-          Edit
-        </button>
-      ) : null}
+        <h1 className="singlePostTitle">
+          {singlePost.title}
+          <div className="singlePostEdit">
+            {isSameUser ? (
+              <button
+                className="delete-btn"
+                onClick={handleDelete}
+                type="delete"
+              >
+                <i className="singlePostIcon far fa-trash-alt"></i>
+              </button>
+            ) : null}
+            {isSameUser ? (
+              <button className=" edit-btn" onClick={handleEdit} type="button">
+                <i className="singlePostIcon far fa-edit"></i>
+              </button>
+            ) : null}
+          </div>
+        </h1>
+
+        <div className="singlePostInfo">
+          <Link
+            className="singlePostAuthor"
+            to={`/${singlePost.owner.username}`}
+          >
+            Author: <b>{singlePost.owner.username}</b>
+          </Link>
+          <span className="singlePostDate">Post on: {date.toUTCString()}</span>
+        </div>
+
+        <p className="singlePostDesc">{singlePost.content}</p>
+      </div>
     </div>
   );
 }
