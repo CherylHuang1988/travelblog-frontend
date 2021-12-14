@@ -8,7 +8,6 @@ function FeedPage() {
 
   useEffect(() => {
     getAllPosts().then((dbPosts) => {
-      console.log("db:", dbPosts);
       if (!dbPosts.success) {
         return;
       }

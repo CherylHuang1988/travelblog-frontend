@@ -6,13 +6,6 @@ const postService = axios.create({
   baseURL: `${SERVER_URL}/post`,
 });
 
-export function editPostTitle(title) {
-  return postService
-    .post("/editPostTitle", { title }, sendUser())
-    .then(onSuccess("edit-post"))
-    .catch(onError("edit-post"));
-}
-
 export function editPostPic(id, formBody) {
   return postService
     .post(`/${id}/editPostPic`, formBody, sendUser())
@@ -20,15 +13,14 @@ export function editPostPic(id, formBody) {
     .catch(onError("edit-post"));
 }
 
-export function editPostCon(content) {
+export function editPostCon(id, formBody) {
   return postService
-    .patch("/editPostCon", { content }, sendUser())
+    .patch(`/${id}/editPostCon`, formBody, sendUser())
     .then(onSuccess("edit-post"))
     .catch(onError("edit-post"));
 }
 
 export function createPost(formBody) {
-  console.log(sendUser());
   return postService
     .post("/create", formBody, sendUser())
     .then(onSuccess("create-post"))
@@ -43,8 +35,6 @@ export function getSinglePost(id) {
 }
 
 export function getAllPosts() {
-  const authorization = getAccessToken();
-  console.log("authorization:", authorization);
   return postService
     .get("/", {
       headers: {
