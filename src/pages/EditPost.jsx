@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router";
 import { editPostCon, editPostPic } from "../services/post";
 import { useNavigate } from "react-router-dom";
+import "./editpost.css";
 
 function EditPost() {
   const { postId } = useParams();
@@ -64,35 +65,45 @@ function EditPost() {
   }
 
   return (
-    <div>
-      <br />
-      <br />
-      <h1>Edit your Post</h1>
-      <br />
-      <br />
-      {error && <h3 style={{ color: "red" }}>{error}</h3>}
-      <br />
-      <br />
-      <form onSubmit={handleFormSubmit} method="POST">
-        <input type="file" onChange={handleInputChange} />
-        <button type="submit">Update your Picture!</button>
-      </form>
-      <br />
-      <br />
-      <form onSubmit={handleContentSubmit} method="POST">
-        <label>
-          Content:
-          <br />
+    <div className="editpost">
+      <div className="editWrapper">
+        <div className="editTitle">
+          <span className="editUpdateTitle">Edit your post</span>
+        </div>
+
+        {error && <h3 style={{ color: "red" }}>{error}</h3>}
+
+        <form className="editForm" onSubmit={handleFormSubmit} method="POST">
+          <label>Post photo</label>
+          <div className="editPP">
+            <input type="file" onChange={handleInputChange} />
+
+            <button className="editPhotoButton" type="submit">
+              Update Photo
+            </button>
+          </div>
+        </form>
+        <hr />
+
+        <form className="editForm" onSubmit={handleContentSubmit} method="POST">
+          <label>Content</label>
+
           <textarea
+            className="writeInput writeText"
             type="text"
             name="content"
             value={content}
             placeholder="Edit your content"
             onChange={(e) => setContent(e.target.value)}
           />
-        </label>
-        <button type="submit">Update your Content!</button>
-      </form>
+
+          <hr />
+
+          <button className="updateContentBtn" type="submit">
+            Update Content
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

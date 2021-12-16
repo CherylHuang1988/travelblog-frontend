@@ -1,0 +1,64 @@
+.editpost {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.editUpdateTitle {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: teal;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.editPP {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.editForm > label {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #adb5bd;
+}
+
+input {
+  color: #adb5bd;
+  margin-top: 10px;
+  height: 30px;
+  border: none;
+}
+
+.editPhotoButton {
+  width: 150px;
+  margin-left: 550px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: teal;
+  padding: 5px;
+}
+
+.updateContentBtn {
+  width: 150px;
+  margin-left: 800px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: teal;
+  padding: 5px;
+}
